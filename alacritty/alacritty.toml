@@ -1,0 +1,124 @@
+# ~/.config/alacritty/alacritty.toml
+# Alacritty Configuration - Kaika Lavender Theme (TOML format)
+
+# Font configuration
+[font]
+# Normal (regular) font face
+[font.normal]
+family = "Inconsolata Nerd Font" # Use the Nerd Font version for icons
+style = "Regular"
+# size = 11.0 # Removed size key as requested
+
+# Bold font face
+[font.bold]
+family = "Inconsolata Nerd Font"
+style = "Bold"
+# size = 11.0 # Removed size key as requested
+
+# Italic font face
+[font.italic]
+family = "Inconsolata Nerd Font"
+style = "Italic"
+# size = 11.0 # Removed size key as requested
+
+# Bold italic font face
+[font.bold_italic]
+family = "Inconsolata Nerd Font"
+style = "Bold Italic"
+# size = 11.0 # Removed size key as requested
+
+# Colors (Dracula-inspired with Lavender accents)
+[colors]
+# Default colors
+[colors.primary]
+background = '0x282a36' # Dracula background
+foreground = '0xf8f8f2' # Dracula foreground
+
+# Cursor colors
+[colors.cursor]
+text = '0x282a36'   # Cursor text color (matches background for contrast)
+cursor = '0xf8f8f2' # Cursor color (matches foreground)
+
+# [cursor]
+# shape = "Beam"
+
+# Vi mode cursor colors
+[colors.vi_mode_cursor]
+text = '0x282a36'
+cursor = '0xbd93f9' # Purple accent for vi mode cursor
+
+# Selection colors
+[colors.selection]
+text = '0xf8f8f2'   # Selected text color
+background = '0x44475a' # Dracula selection background
+
+# Normal (ANSI) colors
+[colors.normal]
+black =   '0x21222c' # Darker black for true black
+red =     '0xff5555' # Dracula red
+green =   '0x50fa7b' # Dracula green
+yellow =  '0xffb86c' # Dracula orange/yellow
+blue =    '0xbd93f9' # Dracula purple (used as primary blue)
+magenta = '0xff79c6' # Dracula pink
+cyan =    '0x8be9fd' # Dracula cyan
+white =   '0xf8f8f2' # Dracula foreground
+
+# Bright (ANSI) colors - often slightly lighter versions
+[colors.bright]
+black =   '0x6272a4' # Dracula comment color (soft blue/gray)
+red =     '0xff6e6e'
+green =   '0x69ff91'
+yellow =  '0xffc680'
+blue =    '0xd6acff' # Lighter purple
+magenta = '0xff92d0'
+cyan =    '0xa1eaff'
+white =   '0xffffff' # Pure white
+
+# Dim colors (optional, for dimmed text)
+[colors.dim]
+black =   '0x1a1b24'
+red =     '0xcc4444'
+green =   '0x40c862'
+yellow =  '0xcc9252'
+blue =    '0x9c7cdc'
+magenta = '0xcc629e'
+cyan =    '0x6ebee6'
+white =   '0xc0c0c0'
+
+# Window configuration
+[window]
+# Padding around the terminal content (adjust as desired)
+[window.padding]
+x = 10
+y = 10
+
+# Opacity (0.0 - 1.0) - optional, for a transparent terminal
+# Uncomment and set a value like 0.9 for transparency.
+# opacity = 0.9
+
+# You can also set a specific window title
+# title = "Alacritty"
+
+# Other visual settings (optional)
+[selection]
+# When true, selected text will be copied to the clipboard
+# right after the selection is made.
+# This matches the default behavior of many terminals.
+save_to_clipboard = true
+
+# Shell to use (optional, Alacritty usually defaults to your login shell)
+# [shell]
+# program = "/bin/bash"
+# args = [
+#   "--login"
+# ]
+
+# Live reloading of configuration changes (useful for tweaking)
+# live_config_reload: true # This should be 'live_config_reload = true' in TOML
+
+# Alacritty's logging level (optional, to suppress warnings)
+# Valid levels: "Off", "Error", "Warn", "Info", "Debug", "Trace"
+# To hide warnings, you can set it to "Error" or "Off".
+[debug] # This is usually under a [debug] section
+log_level = "Error"
+

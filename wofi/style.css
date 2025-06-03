@@ -1,0 +1,84 @@
+window {
+    /* General window styling */
+    margin: 0px;
+    border: 2px solid #663399; /* A nice purple border */
+    background-color: #282a36; /* Dracula background color */
+    border-radius: 8px;
+    font-family: "Hack", sans-serif; /* Using Inter font */
+    font-size: 14px;
+    color: #f8f8f2; /* Dracula foreground color */
+}
+
+/* Input field styling */
+#input {
+    margin: 5px;
+    border: none;
+    background-color: #44475a; /* Dracula selection color */
+    padding: 8px;
+    border-radius: 5px;
+    color: #f8f8f2;
+}
+
+/* Inner box containing entries */
+#inner-box {
+    margin: 5px;
+    border: none;
+    background-color: #282a36;
+    border-radius: 5px;
+}
+
+/* Outer box (usually the main container) */
+#outer-box {
+    margin: 5px;
+    border: none;
+    background-color: #282a36;
+    border-radius: 5px;
+}
+
+/* Scrollbar styling */
+#scroll {
+    margin: 0px;
+    border: none;
+    background-color: #282a36;
+    border-radius: 5px;
+}
+
+/* Individual entry styling */
+#entry {
+    padding: 8px;
+    margin: 2px 5px;
+    border-radius: 5px;
+    background-color: #282a36; /* Default background */
+    border: 1px solid transparent; /* Transparent border for consistency */
+    min-height: 24px; /* Ensure enough space for a 20px icon + padding */
+    display: flex; /* Use flexbox to align content if needed */
+    align-items: center; /* Vertically center content */
+}
+
+/* Styling for selected entry */
+#entry:focus {
+    background-color: #6272a4; /* Dracula comment color for focus */
+    border: 1px solid #bd93f9; /* Dracula purple for focus border */
+    outline: none; /* Remove default outline */
+}
+
+/* Text within the entry (including icon and name) */
+#text {
+    /* This is crucial for icon display */
+    /* Wofi places the icon as the background-image of the #text element */
+    /* and the text as its content. */
+    background-repeat: no-repeat;
+    background-position: left center; /* Position icon to the left */
+    background-size: 20px 20px; /* Size of the icon */
+    padding-left: 28px; /* Space for the icon + a little margin */
+    margin: 0px; /* Remove default margins */
+    color: #f8f8f2;
+    flex-grow: 1; /* Allow text to take available space */
+}
+
+/* Styling for selected text */
+#entry:focus #text {
+    color: #f8f8f2; /* Keep text color consistent on focus */
+}
+```
+

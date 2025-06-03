@@ -1,0 +1,147 @@
+// ~/.config/waybar/config
+// Waybar configuration for Sway - Final Version with Nerd Font Launcher and Custom Clock
+// FIXED: Wofi now toggles on/off when launcher button is pressed.
+
+{
+    "layer": "top", // "bottom"
+    "position": "top", // "bottom"
+    "mod": "dock", // "passthrough"
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+
+    // Define the modules for the left, center, and right sections of the bar
+    "modules-left": [
+        "custom/launcher", // EndeavourOS Launcher Button with Nerd Font Icon
+        "sway/workspaces",
+        "sway/mode",       // Displays current Sway mode (e.g., "resize")
+        "sway/scratchpad", // Shows scratchpad status
+        "sway/window"      // Displays the active window title for Sway (optional)
+    ],
+    "modules-center": [
+        "custom/clock"     // Custom clock module to handle time formatting and icons
+    ],
+    "modules-right": [
+        "pulseaudio",          // Volume control
+        "network",             // Network status (Wi-Fi/Ethernet)
+        "battery",             // Battery status
+        "temperature",         // CPU/GPU temperature (optional, uncomment if needed)
+        // "cpu",                 // CPU usage (optional)
+        // "memory",              // RAM usage (optional)
+        "tray"                 // System tray for applications
+    ],
+
+    // Path to your stylesheet
+    "style": "~/.config/waybar/style.css",
+
+    // *** Custom Launcher Module with Nerd Font Icon ***
+    "custom/launcher": {
+        "format": "",
+        "tooltip": "Launch Applications",
+        // Call the toggle script
+        "on-click": "~/.config/waybar/scripts/clickfi.sh",
+        // You can create a separate script for right-click if you want to toggle 'wofi --show run'
+        "on-click-right": "wofi --show run --insensitive -x 0 -y 85 --run-hide-on-select | xargs swaymsg exec --",
+        "interval": "once" // This module's content doesn't change
+    },
+
+    // *** Sway Workspaces Module ***
+    "sway/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "1": "1", // Nerd Font icon for workspace 1
+            "2": "2", // Nerd Font icon for workspace 2
+            "3": "3",
+            "4": "4",
+            "5": "5",
+	    "6": "6",
+	    "7": "7",
+	    "8": "8",
+	    "9": "9",
+            "active": "●", // Icon for active workspace
+            "default": "○" // Default icon for inactive workspaces
+        },
+        "all-outputs": true, // Show workspaces from all outputs
+        "persistent_workspaces": { // Define persistent workspaces
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": []
+        }
+    },
+
+    // *** Sway Mode Module ***
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+
+    // *** Sway Scratchpad Module ***
+    "sway/scratchpad": {
+        "format": "{icon} {count}",
+        "format-icons": ["", ""], // Icon when scratchpad has windows
+        "show-empty": false,
+        "tooltip": true
+    },
+
+    // *** Sway Window Title Module ***
+    "sway/window": {
+        "max-length": 50,
+        "tooltip": true
+    },
+
+    // *** Custom Clock Module ***
+    "custom/clock": {
+        "format": "{}", // The output of the 'exec' command will replace this
+        // Shell command to format time with Nerd Font icons
+        "exec": "date '+󰥔 %H:%M 󰃭 %Y-%m-%d'",
+        "interval": 1, // Update every 1 second
+        "tooltip": true,
+        // Simplified tooltip-format for custom modules (displays same as main output)
+        "tooltip-format": "{}"
+    },
+
+    // *** Pulseaudio (Volume) Module ***
+    "pulseaudio": {
+        "format": "󰖀 {volume}% {format_source}", // Volume icon and percentage
+        "format-bluetooth": "󰂯 {volume}% {format_source}", // Bluetooth volume
+        "format-bluetooth-muted": "bluetooth {volume}% {format_source}",
+        "format-muted": "󰖁 {format_source}", // Muted icon
+        "format-source": " {volume}%", // Microphone icon and percentage
+        "format-source-muted": "󰍭", // Muted microphone icon
+        "scroll-step": 1, // Volume increment/decrement step
+        "on-click": "pavucontrol", // Open pavucontrol on click
+        "tooltip": true
+    },
+
+    "network": {
+        "format-wifi": "󰖩 {essid} ({signalStrength}%)", // Wi-Fi icon, SSID, signal
+        "format-ethernet": "󰈀 {ipaddr}/{cidr}", // Ethernet icon, IP
+        "format-disconnected": "󰖪 Disconnected", // Disconnected icon
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "on-click": "nm-connection-editor" // Open network manager on click
+    },
+
+    "battery": {
+        "format": "{icon} {capacity}%", // Battery icon and capacity
+        "format-charging": "󰂄 {capacity}%", // Charging icon
+        "format-plugged": "󰂄 {capacity}%", // Plugged in icon
+        "format-alt": "{time} {icon}", // Alternative format showing time remaining
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"], // Battery level icons
+        "tooltip": true,
+        "interval": 60
+    },
+
+    "temperature": {
+        "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input", // Adjust path based on your system
+        "critical-threshold": 80,
+        "format": " {temperatureC}°C", // Temperature icon
+        "format-critical": "🔥 {temperatureC}°C"
+    },
+
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10
+    }
+}
+

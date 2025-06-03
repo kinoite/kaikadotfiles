@@ -1,0 +1,157 @@
+/* ~/.config/waybar/style.css
+   Waybar Style matching Wofi (Dracula theme) with Inconsolata Nerd Font
+   Cleaned and Regenerated to fix "Expected a valid selector" error */
+
+/* General Waybar bar styling */
+#waybar {
+    background-color: #282a36; /* Dracula background color */
+    color: #f8f8f2; /* Dracula foreground color */
+    font-family: "Inconsolata", "Noto Sans", sans-serif;
+    font-size: 14px;
+    border: 2px solid #663399; /* Matching Wofi window border */
+    border-radius: 8px; /* Matching Wofi window border-radius */
+    margin: 5px; /* Add some margin around the bar if you want it to float */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Optional: subtle shadow */
+}
+
+/* General module styling for left, center, right modules */
+#waybar .modules-left > widget > * ,
+#waybar .modules-center > widget > * ,
+#waybar .modules-right > widget > * {
+    background-color: #44475a; /* Dracula selection color */
+    padding: 4px 14px; /* Padding for module content (increased for spacing) */
+    margin: 3px; /* Margin between modules */
+    border-radius: 5px; /* Rounded corners for modules */
+    border: 1px solid transparent; /* Subtle border */
+    min-height: 24px; /* Ensure enough vertical space for icons */
+}
+
+/* Hover effect for all modules */
+#waybar .modules-left > widget > *:hover,
+#waybar .modules-center > widget > *:hover,
+#waybar .modules-right > widget > *:hover {
+    background-color: #6272a4; /* Dracula comment color on hover */
+    border: 1px solid #bd93f9; /* Dracula purple border on hover */
+}
+
+/* Launcher Button Styling */
+#custom-launcher {
+    background-color: #663399; /* A prominent purple background for the button */
+    padding: 4px 10px; /* Padding for the button */
+    border-radius: 5px;
+    margin: 3px;
+    border: 1px solid #bd93f9; /* Purple border */
+    font-size: 18px; /* Adjust icon size here if needed */
+    color: #f8f8f2; /* Ensure icon color is visible */
+}
+
+#custom-launcher:hover {
+    background-color: #7a3faa; /* Darker purple on hover */
+    border: 1px solid #f8f8f2; /* Lighter border on hover */
+}
+
+
+/* Specific module styling (rest of your styles) */
+
+/* Workspaces module */
+#workspaces {
+    background-color: #44475a;
+    padding: 0px 5px;
+    margin: 0px;
+    border-radius: 5px;
+}
+
+#workspaces button {
+    padding: 0 8px;
+    background-color: transparent;
+    color: #f8f8f2;
+    border-radius: 5px;
+    margin: 0 2px;
+}
+
+#workspaces button:hover {
+    background-color: #6272a4;
+    color: #f8f8f2;
+    border: 1px solid #bd93f9;
+}
+
+/* Active workspace button */
+#workspaces button.active {
+    background-color: #bd93f9;
+    color: #282a36;
+    border: 1px solid #bd93f9;
+}
+
+/* Urgent workspace button (e.g., app needs attention) */
+#workspaces button.urgent {
+    background-color: #ff5555;
+    color: #f8f8f2;
+}
+
+/* Common styling for most text-based modules */
+#clock,
+#battery,
+#pulseaudio,
+#network,
+#temperature,
+#cpu,
+#memory,
+#disk,
+#backlight,
+#idle_inhibitor,
+#bluetooth,
+#power,
+#mode,
+#scratchpad,
+#window {
+    background-color: #44475a;
+    color: #f8f8f2;
+    padding: 4px 20px;
+    margin: 3px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+}
+
+/* Battery status indicators */
+#battery.charging, #battery.plugged {
+    color: #50fa7b;
+}
+
+#battery.warning:not(.charging) {
+    color: #ffb86c;
+}
+
+#battery.critical:not(.charging) {
+    color: #ff5555;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ff5555;
+        color: #282a36;
+    }
+}
+
+/* System Tray module */
+#tray {
+    background-color: #44475a;
+    padding: 4px 10px;
+    margin: 3px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+}
+
+/* Tooltip styling */
+tooltip {
+    background-color: #44475a;
+    color: #f8f8f2;
+    border: 1px solid #bd93f9;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
